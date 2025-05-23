@@ -1,4 +1,4 @@
-# **SCADS May 2025: Machine Learning Training with R**  
+# **SCADS May 2025: Build Smart Predictive Model with R**  
 *Regression & Classification using `tidyverse` and `tidymodels`*  
 
 ---
