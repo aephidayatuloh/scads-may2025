@@ -7,6 +7,8 @@ library(finetune)
 library(skimr)
 library(themis)
 
+theme_set(theme_minimal())
+
 # Memuat dataset Bank Marketing
 bank_full <- read_delim("data/bank-additional-full.csv", 
                         delim = ";", 
@@ -110,6 +112,39 @@ glm_model %>%
   arrange(p.value) %>% 
   print(n = Inf)
 
+glm_pred <- glm_model %>% 
+  augment(new_data = bank_test)
+
+glm_pred %>% 
+  count(.pred_class)
+
+
+glm_pred %>% 
+  conf_mat(truth = y, estimate = .pred_class)
+
+glm_pred %>% 
+  conf_mat(truth = y, estimate = .pred_class) %>% 
+  autoplot()
+
+glm_pred %>% 
+  conf_mat(truth = y, estimate = .pred_class) %>% 
+  autoplot(type = "heatmap")
+
+glm_pred %>% 
+  conf_mat(truth = y, estimate = .pred_class) %>% 
+  tidy() %>% 
+  mutate(pct = value/nrow(glm_pred))
+
+glm_pred %>% 
+  evaluate_model(truth = y, estimate = .pred_class)
+
+glm_pred %>% 
+  roc_curve(truth = y, .pred_yes) %>% 
+  autoplot()
+
+glm_pred %>% 
+  roc_auc(truth = y, .pred_yes) 
+  
 # B. Decision Tree
 dtree_spec <- decision_tree() %>% 
   set_engine("rpart", model = TRUE) %>% 
@@ -130,7 +165,33 @@ dtree_pred <- dtree_model %>%
   augment(new_data = bank_test)
 
 dtree_pred %>% 
-  evaluate_model(truth = y, .pred_clas)
+  count(.pred_class)
+
+dtree_pred %>% 
+  conf_mat(truth = y, estimate = .pred_class)
+
+dtree_pred %>% 
+  conf_mat(truth = y, estimate = .pred_class) %>% 
+  autoplot()
+
+dtree_pred %>% 
+  conf_mat(truth = y, estimate = .pred_class) %>% 
+  autoplot(type = "heatmap")
+
+dtree_pred %>% 
+  conf_mat(truth = y, estimate = .pred_class) %>% 
+  tidy() %>% 
+  mutate(pct = value/nrow(glm_pred))
+
+dtree_pred %>% 
+  evaluate_model(truth = y, estimate = .pred_class)
+
+dtree_pred %>% 
+  roc_curve(truth = y, .pred_yes) %>% 
+  autoplot()
+
+dtree_pred %>% 
+  roc_auc(truth = y, .pred_yes) 
 
 # C. Random Forest
 rf_spec <- rand_forest() %>% 
@@ -151,8 +212,56 @@ vip(rf_model)
 rf_pred <- rf_model %>% 
   augment(new_data = bank_test)
 
+
 rf_pred %>% 
-  evaluate_model(truth = y, .pred_clas)
+  count(.pred_class)
+
+rf_pred %>% 
+  conf_mat(truth = y, estimate = .pred_class)
+
+rf_pred %>% 
+  conf_mat(truth = y, estimate = .pred_class) %>% 
+  autoplot()
+
+rf_pred %>% 
+  conf_mat(truth = y, estimate = .pred_class) %>% 
+  autoplot(type = "heatmap")
+
+rf_pred %>% 
+  conf_mat(truth = y, estimate = .pred_class) %>% 
+  tidy() %>% 
+  mutate(pct = value/nrow(glm_pred))
+
+rf_pred %>% 
+  evaluate_model(truth = y, estimate = .pred_class)
+
+rf_pred %>% 
+  roc_curve(truth = y, .pred_yes) %>% 
+  autoplot()
+
+rf_pred %>% 
+  roc_auc(truth = y, .pred_yes) 
+
+dtree_pred %>% 
+  roc_auc(truth = y, .pred_yes) 
+
+# Compare ------------------------------------------------------------
+
+compare_roc <- bind_rows(
+  dtree_pred %>% 
+    roc_curve(truth = y, .pred_yes) %>% 
+    mutate(Algorithm = "DecTree"),
+  rf_pred %>% 
+    roc_curve(truth = y, .pred_yes) %>% 
+    mutate(Algorithm = "RF")
+)
+
+compare_roc %>% 
+  ggplot(aes(x = 1 - specificity, 
+             y = sensitivity, 
+             color = Algorithm)) + 
+  geom_line() + 
+  coord_fixed()
 
 
 # Hyperparameter Tuning
@@ -223,7 +332,7 @@ best_param
 
 
 final_result <- race_results %>% 
-  extract_workflow("basic_rf") %>% 
+  extract_workflow("basic_dtree") %>% 
   finalize_workflow(best_param) %>% 
   last_fit(split = bank_split)
 
@@ -231,7 +340,6 @@ collect_metrics(final_result)
 
 final_model <- final_result %>% 
   extract_workflow()
-
 
 best_model_pred <- final_model %>% 
   augment(new_data = bank_test)
@@ -270,24 +378,6 @@ best_model_pred %>%
 
 best_model_pred %>% 
   roc_auc(truth = y, .pred_yes)
-
-# Compare ------------------------------------------------------------
-
-compare_roc <- bind_rows(
-  dtree_pred %>% 
-    roc_curve(truth = y, .pred_Yes) %>% 
-    mutate(Algorithm = "DecTree"),
-  rf_pred %>% 
-    roc_curve(truth = y, .pred_Yes) %>% 
-    mutate(Algorithm = "RF")
-)
-
-compare_roc %>% 
-  ggplot(aes(x = 1 - specificity, 
-             y = sensitivity, 
-             color = Algorithm)) + 
-  geom_line() + 
-  coord_fixed()
 
 # Model Interpetation -----------------------------------------------
 
