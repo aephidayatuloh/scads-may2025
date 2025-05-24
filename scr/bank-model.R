@@ -35,7 +35,7 @@ bank_cv <- bank_train %>%
   vfold_cv(v = 5, strata = y)
 
 # Fungsi untuk evaluasi model
-evaluate_model <- metric_set(yardstick::accuracy, yardstick::roc_auc, yardstick::f_meas)
+evaluate_model <- metric_set(accuracy, roc_auc, f_meas)
 
 # Data preprocessing dengan recipes
 # Membuat recipe untuk preprocessing data
