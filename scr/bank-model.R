@@ -163,8 +163,8 @@ dtree_spec <- decision_tree(cost_complexity = tune(),
 
 rf_spec <- rand_forest(mtry = tune(), 
                        min_n = tune(), 
-                       trees = 1000) %>% 
-  set_engine("ranger", importance = 'impurity') %>% 
+                       trees = 500) %>% 
+  set_engine("ranger") %>% 
   set_mode("classification")
 
 models_wf <- workflow_set(
@@ -186,9 +186,9 @@ race_results <- models_wf %>%
     "tune_race_anova", 
     seed = 123,
     resamples = bank_cv,
-    grid = 25,
+    grid = 10,
     control = race_ctrl, 
-    metrics = evaluate_model, 
+    metrics = metric_set(f_meas), 
     verbose = TRUE
   )
 
@@ -207,14 +207,14 @@ race_results %>%
     select_best = TRUE) +
   geom_text(aes(y = mean - 0.005, label = wflow_id), 
             angle = 90, hjust = 1) +
-  lims(y = c(0.85, 0.95)) +
+  lims(y = c(0.65, 0.85)) +
   theme(legend.position = "none")
 
 
 # Finalizing Model
 
 best_param <- race_results %>% 
-  extract_workflow_set_result("basic_rf") %>% 
+  extract_workflow_set_result("bank_dtree") %>% 
   select_best(metric = "roc_auc")
 
 best_param
@@ -260,14 +260,14 @@ best_model_pred %>%
   accuracy(truth = y, estimate = .pred_class)
 
 best_model_pred %>% 
-  eval_metrics_class(truth = y, estimate = .pred_class)
+  evaluate_model(truth = y, estimate = .pred_class)
 
 best_model_pred %>% 
-  roc_curve(truth = y, .pred_Yes) %>% 
+  roc_curve(truth = y, .pred_yes) %>% 
   autoplot()
 
 best_model_pred %>% 
-  roc_auc(truth = y, .pred_Yes)
+  roc_auc(truth = y, .pred_yes)
 
 # Compare ------------------------------------------------------------
 
