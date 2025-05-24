@@ -74,8 +74,13 @@ sudo apt update && sudo apt install git
 - **Detailed R/RStudio Installation Guide**:  
   Follow step-by-step instructions at <a href="https://bookdown.org/aepstk/intror/intro.html" target="_blank">bookdown.org/aepstk/intror/intro.html</a>.  
 - **Learn Basic R Programming**:  
-  Explore tutorials at <a href="https://bookdown.org/aepstk/intror/basicr.html" target="_blank">bookdown.org/aepstk/intror/basicr.html</a>.  
-
+  Explore tutorials at <a href="https://bookdown.org/aepstk/intror/basicr.html" target="_blank">bookdown.org/aepstk/intror/basicr.html</a>.
+- **R for Data Science**:  
+  Explore tidyverse at <a href="https://r4ds.hadley.nz" target="_blank">R for Data Science (2e)</a>.  
+- **Machine Learning with Tidymodels**:  
+  Explore tidymodels at <a href="https://www.tidymodels.org/" target="_blank">tidymodels.org</a>.
+- **Screening Many Models**:
+  Learn how to hyperparameter tuning and fit best model at <a href="https://www.tmwr.org/workflow-sets" target = "_blank">Tidy Modeling with R</a>
 ---
 
 ### **3. Clone the Repository** <a name="3-clone-the-repository"></a>
