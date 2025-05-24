@@ -35,7 +35,9 @@ bank_cv <- bank_train %>%
   vfold_cv(v = 5, strata = y)
 
 # Fungsi untuk evaluasi model
-evaluate_model <- metric_set(accuracy, roc_auc, f_meas)
+evaluate_model <- metric_set(accuracy, bal_accuracy, 
+                             sensitivity, specificity, 
+                             recall, precision, f_meas)
 
 # Data preprocessing dengan recipes
 # Membuat recipe untuk preprocessing data
@@ -188,7 +190,7 @@ race_results <- models_wf %>%
     resamples = bank_cv,
     grid = 10,
     control = race_ctrl, 
-    metrics = metric_set(f_meas), 
+    metrics = metric_set(roc_auc), 
     verbose = TRUE
   )
 
