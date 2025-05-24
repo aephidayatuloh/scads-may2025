@@ -7,10 +7,6 @@ library(tidymodels)
 library(finetune)
 library(skimr)
 
-tidymodels_conflicts()
-conflicted::conflicts_prefer(yardstick::mae)
-conflicted::conflicts_prefer(yardstick::rmse)
-
 # Memuat dataset Ames Housing
 ames <- read_csv("data/ames.csv")
 
@@ -170,7 +166,7 @@ glimpse(ames_train_processed)
 # 3. Implementasi berbagai model machine learning
 
 # Fungsi untuk evaluasi model
-evaluate_model <- metric_set(rmse, mae, rsq)
+evaluate_model <- metric_set(yardstick::rmse, yardstick::mae, yardstick::rsq)
 
 # A. Linear Regression
 cat("\n--- Model Regresi Linear ---\n")
