@@ -264,7 +264,7 @@ compare_roc %>%
   coord_fixed()
 
 
-# Hyperparameter Tuning
+# Hyperparameter Tuning -----
 
 dtree_spec <- decision_tree(cost_complexity = tune(), 
                             tree_depth = tune(), 
@@ -292,17 +292,22 @@ race_ctrl <-
     save_workflow = TRUE
   )
 
-race_results <- models_wf %>%
-  workflow_map(
-    "tune_race_anova", 
-    seed = 123,
-    resamples = bank_cv,
-    grid = 10,
-    control = race_ctrl, 
-    metrics = metric_set(roc_auc), 
-    verbose = TRUE
-  )
+# # Racing -----
+# race_results <- models_wf %>%
+#   workflow_map(
+#     "tune_race_anova",
+#     seed = 123,
+#     resamples = bank_cv,
+#     grid = 10,
+#     control = race_ctrl,
+#     metrics = metric_set(roc_auc),
+#     verbose = TRUE
+#   )
+# 
+# race_results %>%
+#   write_rds("scr/race_results.rds")
 
+race_results <- read_rds("scr/race_results.rds")
 race_results
 
 
@@ -322,17 +327,17 @@ race_results %>%
   theme(legend.position = "none")
 
 
-# Finalizing Model
+# Finalizing Model ----
 
 best_param <- race_results %>% 
-  extract_workflow_set_result("bank_dtree") %>% 
+  extract_workflow_set_result("bank_rf") %>% 
   select_best(metric = "roc_auc")
 
 best_param
 
 
 final_result <- race_results %>% 
-  extract_workflow("basic_dtree") %>% 
+  extract_workflow("bank_rf") %>% 
   finalize_workflow(best_param) %>% 
   last_fit(split = bank_split)
 
@@ -403,12 +408,15 @@ new_obs <- x %>%
 final_model %>% 
   predict(new_obs)
 
+# Model Studio ------------------------------------------------------------
+
+
 library(modelStudio)
 modelStudio(
-  explainer = explainer, 
-  new_observation = new_obs, 
-  new_observation_y = new_obs$y, 
-  max_features = 15, 
+  explainer = explainer,
+  new_observation = new_obs,
+  new_observation_y = new_obs$y,
+  max_features = 15,
   facet_dim = c(2, 3)
 )
 
