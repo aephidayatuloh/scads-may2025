@@ -9,6 +9,83 @@
     ]
   },
   "Packages": {
+    "DALEX": {
+      "Package": "DALEX",
+      "Version": "2.4.3",
+      "Source": "Repository",
+      "Title": "moDel Agnostic Language for Exploration and eXplanation",
+      "Authors@R": "c(person(\"Przemyslaw\", \"Biecek\", email = \"przemyslaw.biecek@gmail.com\", role = c(\"aut\", \"cre\"),  comment = c(ORCID = \"0000-0001-8423-1823\")), person(\"Szymon\", \"Maksymiuk\", role = \"aut\", comment = c(ORCID = \"0000-0002-3120-1601\")), person(\"Hubert\", \"Baniecki\", role = \"aut\", comment = c(ORCID = \"0000-0001-6661-5364\")))",
+      "Description": "Any unverified black box model is the path to failure. Opaqueness leads to distrust.  Distrust leads to ignoration. Ignoration leads to rejection.  DALEX package xrays any model and helps to explore and explain its behaviour. Machine Learning (ML) models are widely used and have various applications in classification  or regression. Models created with boosting, bagging, stacking or similar techniques are often used due to their high performance. But such black-box models usually lack direct interpretability. DALEX package contains various methods that help to understand the link between input variables  and model output. Implemented methods help to explore the model on the level of a single instance  as well as a level of the whole dataset. All model explainers are model agnostic and can be compared across different models. DALEX package is the cornerstone for 'DrWhy.AI' universe of packages for visual model exploration. Find more details in (Biecek 2018) <arXiv:1806.08915>.",
+      "License": "GPL",
+      "Encoding": "UTF-8",
+      "LazyData": "true",
+      "RoxygenNote": "7.2.3",
+      "Depends": [
+        "R (>= 3.5)"
+      ],
+      "Imports": [
+        "ggplot2",
+        "iBreakDown (>= 1.3.1)",
+        "ingredients (>= 2.0)"
+      ],
+      "Suggests": [
+        "gower",
+        "ranger",
+        "testthat",
+        "methods"
+      ],
+      "URL": "https://modeloriented.github.io/DALEX/, https://dalex.drwhy.ai",
+      "BugReports": "https://github.com/ModelOriented/DALEX/issues",
+      "NeedsCompilation": "no",
+      "Author": "Przemyslaw Biecek [aut, cre] (<https://orcid.org/0000-0001-8423-1823>), Szymon Maksymiuk [aut] (<https://orcid.org/0000-0002-3120-1601>), Hubert Baniecki [aut] (<https://orcid.org/0000-0001-6661-5364>)",
+      "Maintainer": "Przemyslaw Biecek <przemyslaw.biecek@gmail.com>",
+      "Repository": "CRAN"
+    },
+    "DALEXtra": {
+      "Package": "DALEXtra",
+      "Version": "2.3.0",
+      "Source": "Repository",
+      "Title": "Extension for 'DALEX' Package",
+      "Authors@R": "c(person(given = \"Szymon\", family = \"Maksymiuk\", role = c(\"aut\", \"cre\"), email = \"sz.maksymiuk@gmail.com\", comment = c(ORCID = \"0000-0002-3120-1601\")), person(given = \"Przemyslaw\",  family = \"Biecek\",  email = \"przemyslaw.biecek@gmail.com\",  role = c(\"aut\"),  comment = c(ORCID = \"0000-0001-8423-1823\")), person(\"Hubert\", \"Baniecki\", role = \"aut\"), person(\"Anna\", \"Kozak\", role = \"ctb\"))",
+      "Description": "Provides wrapper of various machine learning models.  In applied machine learning, there  is a strong belief that we need to strike a balance  between interpretability and accuracy.  However, in field of the interpretable machine learning,  there are more and more new ideas for explaining black-box models,  that are implemented in 'R'.  'DALEXtra' creates 'DALEX' Biecek (2018) <arXiv:1806.08915> explainer for many type of models including those created using 'python' 'scikit-learn' and 'keras' libraries, and 'java' 'h2o' library.  Important part of the package is Champion-Challenger analysis and innovative approach to model performance across subsets of test data presented in Funnel Plot.",
+      "Depends": [
+        "R (>= 3.5.0)",
+        "DALEX (>= 2.4.0)"
+      ],
+      "License": "GPL",
+      "Encoding": "UTF-8",
+      "RoxygenNote": "7.2.3",
+      "Imports": [
+        "ggplot2"
+      ],
+      "Suggests": [
+        "auditor",
+        "gbm",
+        "ggrepel",
+        "h2o",
+        "iml",
+        "ingredients",
+        "lime",
+        "localModel",
+        "mlr",
+        "mlr3",
+        "ranger",
+        "recipes",
+        "reticulate",
+        "rmarkdown",
+        "rpart",
+        "stacks",
+        "xgboost",
+        "testthat",
+        "tidymodels"
+      ],
+      "URL": "https://ModelOriented.github.io/DALEXtra/, https://github.com/ModelOriented/DALEXtra",
+      "BugReports": "https://github.com/ModelOriented/DALEXtra/issues",
+      "NeedsCompilation": "no",
+      "Author": "Szymon Maksymiuk [aut, cre] (<https://orcid.org/0000-0002-3120-1601>), Przemyslaw Biecek [aut] (<https://orcid.org/0000-0001-8423-1823>), Hubert Baniecki [aut], Anna Kozak [ctb]",
+      "Maintainer": "Szymon Maksymiuk <sz.maksymiuk@gmail.com>",
+      "Repository": "CRAN"
+    },
     "DBI": {
       "Package": "DBI",
       "Version": "1.2.3",
@@ -306,6 +383,26 @@
       "Maintainer": "Winston Chang <winston@posit.co>",
       "Repository": "CRAN"
     },
+    "RANN": {
+      "Package": "RANN",
+      "Version": "2.6.2",
+      "Source": "Repository",
+      "Title": "Fast Nearest Neighbour Search (Wraps ANN Library) Using L2 Metric",
+      "Authors@R": "c( person(\"Gregory\",\"Jefferis\", email=\"jefferis@gmail.com\",  role = c(\"aut\", \"cre\"), comment = c(ORCID = \"0000-0002-0587-9355\")), person(given = c(\"Samuel\", \"E.\"), family = \"Kemp\", role = \"aut\"), person(given = \"Kirill\", family = \"M\\u00fcller\", role = \"ctb\", comment = c(ORCID = \"0000-0002-1416-3412\")), person(\"Sunil\",\"Arya\", role=c(\"aut\", \"cph\"), comment = c(ORCID = \"0000-0003-0939-4192\")), person(\"David\",\"Mount\", role=c(\"aut\", \"cph\"),  comment = c(ORCID = \"0000-0002-3290-8932\")), person(\"University of Maryland\", role=\"cph\", comment = \"ANN library is copyright University of Maryland and Sunil Arya and David Mount. See file COPYRIGHT for details\") )",
+      "Description": "Finds the k nearest neighbours for every point in a given dataset in O(N log N) time using Arya and Mount's ANN library (v1.1.3). There is support for approximate as well as exact searches, fixed radius searches and 'bd' as well as 'kd' trees. The distance is computed using the L2 (Euclidean) metric. Please see package 'RANN.L1' for the same functionality using the L1 (Manhattan, taxicab) metric.",
+      "License": "GPL (>= 3)",
+      "URL": "https://github.com/jefferislab/RANN, https://jefferislab.github.io/RANN/",
+      "BugReports": "https://github.com/jefferislab/RANN/issues",
+      "Suggests": [
+        "testthat"
+      ],
+      "Encoding": "UTF-8",
+      "RoxygenNote": "7.3.2",
+      "NeedsCompilation": "yes",
+      "Author": "Gregory Jefferis [aut, cre] (<https://orcid.org/0000-0002-0587-9355>), Samuel E. Kemp [aut], Kirill Müller [ctb] (<https://orcid.org/0000-0002-1416-3412>), Sunil Arya [aut, cph] (<https://orcid.org/0000-0003-0939-4192>), David Mount [aut, cph] (<https://orcid.org/0000-0002-3290-8932>), University of Maryland [cph] (ANN library is copyright University of Maryland and Sunil Arya and David Mount. See file COPYRIGHT for details)",
+      "Maintainer": "Gregory Jefferis <jefferis@gmail.com>",
+      "Repository": "CRAN"
+    },
     "RColorBrewer": {
       "Package": "RColorBrewer",
       "Version": "1.1-3",
@@ -320,6 +417,26 @@
       ],
       "Description": "Provides color schemes for maps (and other graphics) designed by Cynthia Brewer as described at http://colorbrewer2.org.",
       "License": "Apache License 2.0",
+      "NeedsCompilation": "no",
+      "Repository": "CRAN"
+    },
+    "ROSE": {
+      "Package": "ROSE",
+      "Version": "0.0-4",
+      "Source": "Repository",
+      "Type": "Package",
+      "Title": "Random Over-Sampling Examples",
+      "Date": "2021-06-14",
+      "Author": "Nicola Lunardon, Giovanna Menardi, Nicola Torelli",
+      "Maintainer": "Nicola Lunardon <nicola.lunardon@unimib.it>",
+      "Suggests": [
+        "MASS",
+        "nnet",
+        "rpart",
+        "tree"
+      ],
+      "Description": "Functions to deal with binary classification problems in the presence of imbalanced classes. Synthetic balanced samples are   generated according to ROSE (Menardi and Torelli, 2013).   Functions that implement more traditional remedies to the class imbalance are also provided, as well as different metrics to evaluate a learner accuracy. These are estimated by holdout, bootstrap or cross-validation methods.",
+      "License": "GPL-2",
       "NeedsCompilation": "no",
       "Repository": "CRAN"
     },
@@ -2897,6 +3014,43 @@
       "Maintainer": "Hadley Wickham <hadley@posit.co>",
       "Repository": "CRAN"
     },
+    "iBreakDown": {
+      "Package": "iBreakDown",
+      "Version": "2.1.2",
+      "Source": "Repository",
+      "Title": "Model Agnostic Instance Level Variable Attributions",
+      "Authors@R": "c(person(\"Przemyslaw\", \"Biecek\", email = \"przemyslaw.biecek@gmail.com\", role = c(\"aut\", \"cre\"),  comment = c(ORCID = \"0000-0001-8423-1823\")), person(\"Alicja\", \"Gosiewska\", role = \"aut\", comment = c(ORCID = \"0000-0001-6563-5742\")), person(\"Hubert\", \"Baniecki\", role = \"aut\", comment = c(ORCID = \"0000-0001-6661-5364\")), person(\"Adam\", \"Izdebski\", role = \"aut\"), person(\"Dariusz\", \"Komosinski\", role = \"ctb\"))",
+      "Description": "Model agnostic tool for decomposition of predictions from black boxes. Supports additive attributions and attributions with interactions. The Break Down Table shows contributions of every variable to a final prediction.  The Break Down Plot presents variable contributions in a concise graphical way.  This package works for classification and regression models.  It is an extension of the 'breakDown' package (Staniak and Biecek 2018) <doi:10.32614/RJ-2018-072>, with new and faster strategies for orderings.  It supports interactions in explanations and has interactive visuals (implemented with 'D3.js' library).  The methodology behind is described in the 'iBreakDown' article (Gosiewska and Biecek 2019) <arXiv:1903.11420> This package is a part of the 'DrWhy.AI' universe (Biecek 2018) <arXiv:1806.08915>.",
+      "Depends": [
+        "R (>= 3.5)"
+      ],
+      "License": "GPL-3",
+      "Encoding": "UTF-8",
+      "RoxygenNote": "7.2.2",
+      "Imports": [
+        "ggplot2"
+      ],
+      "Suggests": [
+        "DALEX",
+        "knitr",
+        "rmarkdown",
+        "randomForest",
+        "e1071",
+        "ranger",
+        "nnet",
+        "testthat",
+        "r2d3",
+        "jsonlite",
+        "covr"
+      ],
+      "VignetteBuilder": "knitr",
+      "URL": "https://ModelOriented.github.io/iBreakDown/, https://github.com/ModelOriented/iBreakDown",
+      "BugReports": "https://github.com/ModelOriented/iBreakDown/issues",
+      "NeedsCompilation": "no",
+      "Author": "Przemyslaw Biecek [aut, cre] (<https://orcid.org/0000-0001-8423-1823>), Alicja Gosiewska [aut] (<https://orcid.org/0000-0001-6563-5742>), Hubert Baniecki [aut] (<https://orcid.org/0000-0001-6661-5364>), Adam Izdebski [aut], Dariusz Komosinski [ctb]",
+      "Maintainer": "Przemyslaw Biecek <przemyslaw.biecek@gmail.com>",
+      "Repository": "CRAN"
+    },
     "ids": {
       "Package": "ids",
       "Version": "1.0.1",
@@ -2978,6 +3132,44 @@
       "NeedsCompilation": "no",
       "Author": "Andrew Bray [aut], Chester Ismay [aut] (<https://orcid.org/0000-0003-2820-2547>), Evgeni Chasnovski [aut] (<https://orcid.org/0000-0002-1617-4019>), Simon Couch [aut, cre] (<https://orcid.org/0000-0001-5676-5107>), Ben Baumer [aut] (<https://orcid.org/0000-0002-3279-0516>), Mine Cetinkaya-Rundel [aut] (<https://orcid.org/0000-0001-6452-2420>), Ted Laderas [ctb] (<https://orcid.org/0000-0002-6207-7068>), Nick Solomon [ctb], Johanna Hardin [ctb], Albert Y. Kim [ctb] (<https://orcid.org/0000-0001-7824-306X>), Neal Fultz [ctb], Doug Friedman [ctb], Richie Cotton [ctb] (<https://orcid.org/0000-0003-2504-802X>), Brian Fannin [ctb]",
       "Maintainer": "Simon Couch <simon.couch@posit.co>",
+      "Repository": "CRAN"
+    },
+    "ingredients": {
+      "Package": "ingredients",
+      "Version": "2.3.0",
+      "Source": "Repository",
+      "Title": "Effects and Importances of Model Ingredients",
+      "Authors@R": "c(person(\"Przemyslaw\", \"Biecek\", email = \"przemyslaw.biecek@gmail.com\", role = c(\"aut\", \"cre\"), comment = c(ORCID = \"0000-0001-8423-1823\")), person(\"Hubert\", \"Baniecki\", role = \"aut\", comment = c(ORCID = \"0000-0001-6661-5364\")), person(\"Adam\", \"Izdebski\", role = \"ctb\"))",
+      "Description": "Collection of tools for assessment of feature importance and feature effects. Key functions are: feature_importance() for assessment of global level feature importance, ceteris_paribus() for calculation of the what-if plots, partial_dependence() for partial dependence plots, conditional_dependence() for conditional dependence plots, accumulated_dependence() for accumulated local effects plots, aggregate_profiles() and cluster_profiles() for aggregation of ceteris paribus profiles, generic print() and plot() for better usability of selected explainers, generic plotD3() for interactive, D3 based explanations, and generic describe() for explanations in natural language. The package 'ingredients' is a part of the 'DrWhy.AI' universe (Biecek 2018) <arXiv:1806.08915>.",
+      "Depends": [
+        "R (>= 3.5)"
+      ],
+      "License": "GPL-3",
+      "Encoding": "UTF-8",
+      "RoxygenNote": "7.2.3",
+      "Imports": [
+        "ggplot2",
+        "scales",
+        "gridExtra",
+        "methods"
+      ],
+      "Suggests": [
+        "DALEX",
+        "gower",
+        "ranger",
+        "testthat",
+        "r2d3",
+        "jsonlite",
+        "knitr",
+        "rmarkdown",
+        "covr"
+      ],
+      "URL": "https://ModelOriented.github.io/ingredients/, https://github.com/ModelOriented/ingredients",
+      "BugReports": "https://github.com/ModelOriented/ingredients/issues",
+      "VignetteBuilder": "knitr",
+      "NeedsCompilation": "no",
+      "Author": "Przemyslaw Biecek [aut, cre] (<https://orcid.org/0000-0001-8423-1823>), Hubert Baniecki [aut] (<https://orcid.org/0000-0001-6661-5364>), Adam Izdebski [ctb]",
+      "Maintainer": "Przemyslaw Biecek <przemyslaw.biecek@gmail.com>",
       "Repository": "CRAN"
     },
     "insight": {
@@ -3839,6 +4031,47 @@
       "NeedsCompilation": "yes",
       "Author": "Yihui Xie [aut, cre] (<https://orcid.org/0000-0003-0645-5666>, https://yihui.org), Jeffrey Horner [ctb], Beilei Bian [ctb]",
       "Maintainer": "Yihui Xie <xie@yihui.name>",
+      "Repository": "CRAN"
+    },
+    "modelStudio": {
+      "Package": "modelStudio",
+      "Version": "3.1.2",
+      "Source": "Repository",
+      "Title": "Interactive Studio for Explanatory Model Analysis",
+      "Authors@R": "c(person(\"Hubert\", \"Baniecki\", role = c(\"aut\", \"cre\"), email = \"hbaniecki@gmail.com\", comment = c(ORCID = \"0000-0001-6661-5364\")), person(\"Przemyslaw\", \"Biecek\", role = c(\"aut\"),  comment = c(ORCID = \"0000-0001-8423-1823\")), person(\"Piotr\", \"Piatyszek\", role = c(\"ctb\")))",
+      "Description": "Automate the explanatory analysis of machine learning predictive  models. Generate advanced interactive model explanations in the form of  a serverless HTML site with only one line of code. This tool is  model-agnostic, therefore compatible with most of the black-box predictive models and frameworks. The main function computes various (instance and  model-level) explanations and produces a customisable dashboard, which  consists of multiple panels for plots with their short descriptions. It is  possible to easily save the dashboard and share it with others. modelStudio  facilitates the process of Interactive Explanatory Model Analysis introduced  in Baniecki et al. (2023) <doi:10.1007/s10618-023-00924-w>.",
+      "Depends": [
+        "R (>= 3.6)"
+      ],
+      "License": "GPL-3",
+      "Encoding": "UTF-8",
+      "RoxygenNote": "7.1.2",
+      "Imports": [
+        "DALEX (>= 2.2.1)",
+        "ingredients (>= 2.2.0)",
+        "iBreakDown (>= 2.0.1)",
+        "r2d3",
+        "jsonlite",
+        "progress",
+        "digest"
+      ],
+      "Suggests": [
+        "parallelMap",
+        "ranger",
+        "xgboost",
+        "knitr",
+        "rmarkdown",
+        "testthat",
+        "spelling"
+      ],
+      "VignetteBuilder": "knitr",
+      "URL": "https://modelstudio.drwhy.ai, https://github.com/ModelOriented/modelStudio",
+      "BugReports": "https://github.com/ModelOriented/modelStudio/issues",
+      "Language": "en-US",
+      "LazyData": "true",
+      "NeedsCompilation": "no",
+      "Author": "Hubert Baniecki [aut, cre] (<https://orcid.org/0000-0001-6661-5364>), Przemyslaw Biecek [aut] (<https://orcid.org/0000-0001-8423-1823>), Piotr Piatyszek [ctb]",
+      "Maintainer": "Hubert Baniecki <hbaniecki@gmail.com>",
       "Repository": "CRAN"
     },
     "modeldata": {
@@ -4722,6 +4955,43 @@
       "Maintainer": "Hadley Wickham <hadley@posit.co>",
       "Repository": "CRAN"
     },
+    "r2d3": {
+      "Package": "r2d3",
+      "Version": "0.2.6",
+      "Source": "Repository",
+      "Type": "Package",
+      "Title": "Interface to 'D3' Visualizations",
+      "Authors@R": "c( person(\"Nick\", \"Strayer\", email = \"nick.strayer@rstudio.com\", role = c(\"aut\", \"cre\")), person(\"Javier\", \"Luraschi\", email = \"jluraschi@gmail.com\", role = c(\"aut\")), person(\"JJ\", \"Allaire\", role = c(\"aut\")), person(\"Mike\", \"Bostock\", role = c(\"ctb\", \"cph\"), comment = \"d3.js library, https://d3js.org\"), person(family = \"RStudio\", role = c(\"cph\")) )",
+      "Description": "Suite of tools for using 'D3', a library for producing dynamic, interactive data visualizations. Supports translating objects into 'D3' friendly data structures, rendering 'D3' scripts, publishing 'D3' visualizations, incorporating 'D3' in R Markdown, creating interactive 'D3' applications with Shiny, and distributing 'D3' based 'htmlwidgets' in R packages.",
+      "License": "BSD_3_clause + file LICENSE",
+      "Encoding": "UTF-8",
+      "Depends": [
+        "R (>= 3.1.2)"
+      ],
+      "Imports": [
+        "htmlwidgets (>= 1.2)",
+        "htmltools",
+        "jsonlite",
+        "rstudioapi"
+      ],
+      "Suggests": [
+        "knitr",
+        "rmarkdown",
+        "R6",
+        "shiny",
+        "shinytest",
+        "testthat",
+        "webshot"
+      ],
+      "RoxygenNote": "7.1.2",
+      "URL": "https://rstudio.github.io/r2d3/, https://github.com/rstudio/r2d3",
+      "BugReports": "https://github.com/rstudio/r2d3/issues",
+      "VignetteBuilder": "knitr",
+      "NeedsCompilation": "no",
+      "Author": "Nick Strayer [aut, cre], Javier Luraschi [aut], JJ Allaire [aut], Mike Bostock [ctb, cph] (d3.js library, https://d3js.org), RStudio [cph]",
+      "Maintainer": "Nick Strayer <nick.strayer@rstudio.com>",
+      "Repository": "CRAN"
+    },
     "ragg": {
       "Package": "ragg",
       "Version": "1.4.0",
@@ -5359,6 +5629,27 @@
       "Repository": "CRAN",
       "URL": "https://github.com/bethatkinson/rpart, https://cran.r-project.org/package=rpart",
       "BugReports": "https://github.com/bethatkinson/rpart/issues"
+    },
+    "rpart.plot": {
+      "Package": "rpart.plot",
+      "Version": "3.1.2",
+      "Source": "Repository",
+      "Title": "Plot 'rpart' Models: An Enhanced Version of 'plot.rpart'",
+      "Author": "Stephen Milborrow",
+      "Maintainer": "Stephen Milborrow <milbo@sonic.net>",
+      "Depends": [
+        "R (>= 3.4.0)",
+        "rpart (>= 4.1-15)"
+      ],
+      "Suggests": [
+        "earth (>= 5.1.2)"
+      ],
+      "Description": "Plot 'rpart' models. Extends plot.rpart() and text.rpart() in the 'rpart' package.",
+      "License": "GPL-3",
+      "LazyData": "yes",
+      "URL": "http://www.milbo.org/rpart-plot/index.html",
+      "NeedsCompilation": "no",
+      "Repository": "CRAN"
     },
     "rsample": {
       "Package": "rsample",
@@ -6080,6 +6371,53 @@
       "Maintainer": "Thomas Lin Pedersen <thomas.pedersen@posit.co>",
       "Repository": "https://packagemanager.posit.co/cran/latest"
     },
+    "themis": {
+      "Package": "themis",
+      "Version": "1.0.3",
+      "Source": "Repository",
+      "Title": "Extra Recipes Steps for Dealing with Unbalanced Data",
+      "Authors@R": "c( person(\"Emil\", \"Hvitfeldt\", , \"emil.hvitfeldt@posit.co\", role = c(\"aut\", \"cre\"), comment = c(ORCID = \"0000-0002-0679-1945\")), person(given = \"Posit Software, PBC\", role = c(\"cph\", \"fnd\")) )",
+      "Description": "A dataset with an uneven number of cases in each class is said to be unbalanced. Many models produce a subpar performance on unbalanced datasets. A dataset can be balanced by increasing the number of minority cases using SMOTE 2011 <doi:10.48550/arXiv.1106.1813>, BorderlineSMOTE 2005 <doi:10.1007/11538059_91> and ADASYN 2008 <https://ieeexplore.ieee.org/document/4633969>. Or by decreasing the number of majority cases using NearMiss 2003 <https://www.site.uottawa.ca/~nat/Workshop2003/jzhang.pdf> or Tomek link removal 1976 <https://ieeexplore.ieee.org/document/4309452>.",
+      "License": "MIT + file LICENSE",
+      "URL": "https://github.com/tidymodels/themis, https://themis.tidymodels.org",
+      "BugReports": "https://github.com/tidymodels/themis/issues",
+      "Depends": [
+        "R (>= 3.6)",
+        "recipes (>= 1.1.0)"
+      ],
+      "Imports": [
+        "cli",
+        "gower",
+        "lifecycle (>= 1.0.3)",
+        "dplyr",
+        "generics (>= 0.1.0)",
+        "purrr",
+        "RANN",
+        "rlang (>= 1.1.0)",
+        "ROSE",
+        "tibble",
+        "withr",
+        "glue",
+        "hardhat",
+        "vctrs"
+      ],
+      "Suggests": [
+        "covr",
+        "dials (>= 1.2.0)",
+        "ggplot2",
+        "modeldata",
+        "testthat (>= 3.0.0)"
+      ],
+      "Config/Needs/website": "tidyverse/tidytemplate",
+      "Config/testthat/edition": "3",
+      "Encoding": "UTF-8",
+      "LazyData": "true",
+      "RoxygenNote": "7.3.2",
+      "NeedsCompilation": "no",
+      "Author": "Emil Hvitfeldt [aut, cre] (<https://orcid.org/0000-0002-0679-1945>), Posit Software, PBC [cph, fnd]",
+      "Maintainer": "Emil Hvitfeldt <emil.hvitfeldt@posit.co>",
+      "Repository": "CRAN"
+    },
     "tibble": {
       "Package": "tibble",
       "Version": "3.2.1",
@@ -6629,6 +6967,81 @@
       "NeedsCompilation": "yes",
       "Author": "Hadley Wickham [aut], Lionel Henry [aut], Davis Vaughan [aut, cre], data.table team [cph] (Radix sort based on data.table's forder() and their contribution to R's order()), Posit Software, PBC [cph, fnd]",
       "Maintainer": "Davis Vaughan <davis@posit.co>",
+      "Repository": "CRAN"
+    },
+    "vip": {
+      "Package": "vip",
+      "Version": "0.4.1",
+      "Source": "Repository",
+      "Type": "Package",
+      "Title": "Variable Importance Plots",
+      "Authors@R": "c( person(c(\"Brandon\", \"M.\"), family = \"Greenwell\",  email = \"greenwell.brandon@gmail.com\", role = c(\"aut\", \"cre\"),  comment = c(ORCID = \"0000-0002-8120-0084\")), person(\"Brad\", \"Boehmke\", email = \"bradleyboehmke@gmail.com\", role = c(\"aut\"), comment = c(ORCID = \"0000-0002-3611-8516\")) )",
+      "Description": "A general framework for constructing variable importance plots from  various types of machine learning models in R. Aside from some standard model- specific variable importance measures, this package also provides model- agnostic approaches that can be applied to any supervised learning algorithm. These include 1) an efficient permutation-based variable importance measure,  2) variable importance based on Shapley values (Strumbelj and Kononenko,  2014) <doi:10.1007/s10115-013-0679-x>, and 3) the variance-based  approach described in Greenwell et al. (2018) <arXiv:1805.04755>. A  variance-based method for quantifying the relative strength of interaction  effects is also included (see the previous reference for details).",
+      "License": "GPL (>= 2)",
+      "URL": "https://github.com/koalaverse/vip/, https://koalaverse.github.io/vip/",
+      "BugReports": "https://github.com/koalaverse/vip/issues",
+      "Encoding": "UTF-8",
+      "VignetteBuilder": "knitr",
+      "Depends": [
+        "R (>= 4.1.0)"
+      ],
+      "Imports": [
+        "foreach",
+        "ggplot2 (>= 0.9.0)",
+        "stats",
+        "tibble",
+        "utils",
+        "yardstick"
+      ],
+      "Suggests": [
+        "bookdown",
+        "DT",
+        "covr",
+        "doParallel",
+        "dplyr",
+        "fastshap (>= 0.1.0)",
+        "knitr",
+        "lattice",
+        "mlbench",
+        "modeldata",
+        "NeuralNetTools",
+        "pdp",
+        "rmarkdown",
+        "tinytest (>= 1.4.1)",
+        "varImp"
+      ],
+      "Enhances": [
+        "C50",
+        "caret",
+        "Cubist",
+        "earth",
+        "gbm",
+        "glmnet",
+        "h2o",
+        "lightgbm",
+        "mixOmics",
+        "mlr",
+        "mlr3",
+        "neuralnet",
+        "nnet",
+        "parsnip (>= 0.1.7)",
+        "party",
+        "partykit",
+        "pls",
+        "randomForest",
+        "ranger",
+        "rpart",
+        "RSNNS",
+        "sparklyr (>= 0.8.0)",
+        "tidymodels",
+        "workflows (>= 0.2.3)",
+        "xgboost"
+      ],
+      "LazyData": "true",
+      "RoxygenNote": "7.2.3",
+      "NeedsCompilation": "no",
+      "Author": "Brandon M. Greenwell [aut, cre] (<https://orcid.org/0000-0002-8120-0084>), Brad Boehmke [aut] (<https://orcid.org/0000-0002-3611-8516>)",
+      "Maintainer": "Brandon M. Greenwell <greenwell.brandon@gmail.com>",
       "Repository": "CRAN"
     },
     "viridisLite": {
