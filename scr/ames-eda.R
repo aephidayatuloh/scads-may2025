@@ -13,28 +13,26 @@ library(colorspace)
 ames <- read_csv("data/ames.csv")
 
 ## 1. Pemahaman awal tentang dataset ----
-cat("Dimensi dataset Ames Housing:\n")
+
+# Dimensi dataset Ames Housing
 dim(ames)
 
-cat("\nEnam baris pertama dataset:\n")
+# Enam baris pertama dataset
 head(ames)
 
-cat("\nRingkasan struktur data:\n")
+# Ringkasan struktur data
 glimpse(ames)
 
 # Melihat nama-nama variabel yang tersedia
-cat("\nNama-nama variabel dalam dataset Ames Housing:\n")
 names(ames)
 
-# 2. Ringkasan statistik dasar
-cat("\nRingkasan statistik:\n")
+# Ringkasan statistik dasar
 summary(ames)
 
-# Analisis lebih mendalam dengan skimr
+# Ringkasan data lebih mendalam dengan skimr
 skim_without_charts(ames)
 
-# 3. Analisis harga rumah (variabel target)
-cat("\nAnalisis harga rumah (Sale_Price):\n")
+# Analisis harga rumah (variabel target)
 
 # Histogram harga rumah
 p1 <- ggplot(ames, aes(x = Sale_Price)) +
@@ -669,10 +667,9 @@ ames %>%
   theme_minimal()
 
 ames %>% 
-  mutate(Heating_QC = fct_recode(Heating_QC, 
-                                 Poor_Fair = "Fair", 
-                                 Poor_Fair = "Poor") %>% 
-           fct_relevel("Poor_Fair", "Typical", "Good", "Excellent")
+  mutate(Heating_QC = case_when(Heating_QC %in% c("Poor", "Fair") ~ "Poor_Fair", 
+                                TRUE ~ Heating_QC) %>% 
+           fct_relevel(c("Poor_Fair", "Typical", "Good", "Excellent"))
   ) %>% 
   ggplot(aes(x = Log10Sale_Price, 
              y = fct_reorder(Heating_QC, Log10Sale_Price, median))) + 
@@ -683,9 +680,8 @@ ames %>%
 
 ames %>% 
   mutate(
-    Heating_QC = fct_recode(Heating_QC, 
-                            Poor_Fair = "Fair", 
-                            Poor_Fair = "Poor") %>% 
+    Heating_QC = case_when(Heating_QC %in% c("Poor", "Fair") ~ "Poor_Fair", 
+                           TRUE ~ Heating_QC) %>% 
       fct_relevel("Poor_Fair", "Typical", "Good", "Excellent")
       ) %>% 
   count(Heating_QC) %>% 
