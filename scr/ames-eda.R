@@ -392,7 +392,6 @@ pal <-
 ames %>% 
   arrange(Overall_Cond) %>% 
   leaflet() %>%
-  addProviderTiles(provider = ) %>%
   addCircleMarkers(
     radius = 3,
     group = ~Overall_Cond, 
